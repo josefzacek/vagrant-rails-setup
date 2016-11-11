@@ -1,0 +1,14 @@
+nav.nav
+  .nav-left
+    = link_to '/', class: 'nav-item is-brand'
+      = image_tag 'http://bulma.io/images/bulma-type.png', alt: 'Rails Bulma'
+
+  span.nav-toggle#nav-toggle
+    span
+    span
+    span
+
+  .nav-right.nav-menu#nav-menu
+    = link_to 'Home', root_path, class: 'nav-item'
+    = link_to 'About', page_path('about'), class: 'nav-item'
+    = link_to 'Home', root_url, class: 'nav-item'
