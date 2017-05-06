@@ -9,3 +9,4 @@ sleep 2
 
 currentPath=`pwd`
 vagrantFile="Vagrantfile"
+vagrantFilePath=$currentPath/$vagrantFile
