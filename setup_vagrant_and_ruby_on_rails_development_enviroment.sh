@@ -8,3 +8,4 @@ vagrant box list
 sleep 2
 
 currentPath=`pwd`
+vagrantFile="Vagrantfile"
