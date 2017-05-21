@@ -1,24 +1,10 @@
-# README
+# Setup
+Navigate to folder, and paste
+`setup_rbenv_ruby_rails_mysql_on_vagrant.sh` file
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Usage
 
-Things you may want to cover:
+`bash setup_rbenv_ruby_rails_mysql_on_vagrant.sh`
 
-* Ruby version
+--
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
