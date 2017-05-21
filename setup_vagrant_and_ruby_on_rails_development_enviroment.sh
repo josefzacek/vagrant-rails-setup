@@ -12,3 +12,6 @@ vagrantFile="Vagrantfile"
 vagrantFilePath=$currentPath/$vagrantFile
 
 if [ -f "$vagrantFilePath" ]
+then
+  echo "$vagrantFile already exists!"
+  echo "Exiting"
