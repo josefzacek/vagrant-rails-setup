@@ -1,9 +1,10 @@
 # Setup
-Navigate to folder, and paste `setup_vagrant_and_ruby_on_rails_development_enviroment.sh` file
+Navigate to folder, and paste
+`setup_rbenv_ruby_rails_mysql_on_vagrant.sh` file
 
-# run Vagrant and ruby setup
+# Usage
 
-`bash setup_vagrant_and_ruby_on_rails_development_enviroment.sh`
+`bash setup_rbenv_ruby_rails_mysql_on_vagrant.sh`
 
 --
 
