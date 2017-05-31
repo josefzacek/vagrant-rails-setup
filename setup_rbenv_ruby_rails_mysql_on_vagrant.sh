@@ -12,19 +12,19 @@ vagrantFile="Vagrantfile"
 vagrantFilePath=$currentPath/$vagrantFile
 
 if [ -f "$vagrantFilePath" ]
-then
-  echo "$vagrantFile already exists!"
-  echo "Exiting"
+  then
+    echo "$vagrantFile already exists!"
+    echo "Exiting"
 else
   echo "------------ INIT VAGRANT ------------"
   vagrant init ubuntu/trusty64
   sleep 5
   echo $'
-  <<<<< -- Please add following to Vagrantfile -- >>>>>
+    <<<<< -- Please add following to Vagrantfile -- >>>>>
 
     config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  <<<<< -- Please update Vagrantfile with following (optional) -- >>>>>
+    <<<<< -- Please update Vagrantfile with following (optional) -- >>>>>
 
     config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -34,4 +34,19 @@ else
       vb.memory = "2048"
     end
   '
+  
+  # ask user if proceed with running vagrant
+  read -p "Would you like to continue to run Vagrant (y/n)?" runVagrant
+
+  if [ "$runVagrant" == "y" ]
+    then
+      vagrant up
+      echo "------------ CHECK IF VAGRANT IS RUNNING ------------"
+      vagrant status
+  elif [ "$runVagrant" == "n" ]
+    then
+      echo "You have answered No, exiting!"
+  else
+      echo "invalid input exiting"
+  fi
 fi
