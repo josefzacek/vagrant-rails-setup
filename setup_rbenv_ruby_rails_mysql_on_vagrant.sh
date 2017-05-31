@@ -34,4 +34,7 @@ else
       vb.memory = "2048"
     end
   '
+  
+  # ask user if proceed with running vagrant
+  read -p "Would you like to continue to run Vagrant (y/n)?" runVagrant
 fi
