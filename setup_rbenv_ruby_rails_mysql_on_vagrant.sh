@@ -37,4 +37,16 @@ else
   
   # ask user if proceed with running vagrant
   read -p "Would you like to continue to run Vagrant (y/n)?" runVagrant
+
+  if [ "$runVagrant" == "y" ]
+    then
+      vagrant up
+      echo "------------ CHECK IF VAGRANT IS RUNNING ------------"
+      vagrant status
+  elif [ "$runVagrant" == "n" ]
+    then
+      echo "You have answered No, exiting!"
+  else
+      echo "invalid input exiting"
+  fi
 fi
