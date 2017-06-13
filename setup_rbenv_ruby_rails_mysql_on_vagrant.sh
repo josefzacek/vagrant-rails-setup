@@ -53,4 +53,16 @@ else
   else
       echo "invalid input exiting"
   fi
+# ask user if ssh to vagrant
+read -p "Would you like to ssh to Vagrant (y/n)?" sshVagrant
+
+if [ "$sshVagrant" == "y" ]
+  then
+    echo "------------ RUNNING vagrant ssh command ------------"
+    vagrant ssh
+elif [ "$runVagrant" == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
 fi
