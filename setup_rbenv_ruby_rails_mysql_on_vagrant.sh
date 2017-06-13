@@ -16,8 +16,12 @@ if [ -f "$vagrantFilePath" ]
     echo "$vagrantFile already exists!"
     echo "Exiting"
 else
+  # ask user what Vagrant box should be installed
+  read -p "Please type the name of Vagrant box yo would like to create. eg: ubuntu/trusty64 " vagrantBoxName
+
+  echo "Creating $vagrantBoxName Vagrant box"
   echo "------------ INIT VAGRANT ------------"
-  vagrant init ubuntu/trusty64
+  vagrant init $vagrantBoxName
   sleep 5
   echo $'
     <<<<< -- Please add following to Vagrantfile -- >>>>>
