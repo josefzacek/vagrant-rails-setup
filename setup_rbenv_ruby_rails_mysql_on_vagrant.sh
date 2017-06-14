@@ -68,7 +68,7 @@ read -p "Would you like to ssh to Vagrant (y/n)?" sshVagrant
 
 if [ "$sshVagrant" == "y" ]
   then
-    echo "------------ RUNNING vagrant ssh command ------------"
+    printf "${BLUE} ------------  Running ${GREEN} vagrant ssh ${BLUE} command to shh to Vagrant ------------ ${WHITE}\n"
     vagrant ssh
 elif [ "$runVagrant" == "n" ]
   then
