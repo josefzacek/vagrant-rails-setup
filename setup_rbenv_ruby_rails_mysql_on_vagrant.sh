@@ -32,8 +32,8 @@ read vagrantBoxName
 printf "${BLUE} ------------ Running ${GREEN} vagrant init $vagrantBoxName ${BLUE} command to create ${GREEN} $vagrantBoxName ${BLUE} Vagrant box ------------ ${WHITE}\n"
 vagrant init $vagrantBoxName
 sleep 5
-echo $'
   <<<<< -- Please add following to Vagrantfile -- >>>>>
+printf "
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
@@ -46,8 +46,8 @@ echo $'
   # Customize the amount of memory on the VM:
     vb.memory = "2048"
   end
-'
-  
+\n"
+
 # ask user if proceed with running vagrant
 printf "${YELLOW} Would you like to continue to run Vagrant (y/n)? ${WHITE}\n"
 read runVagrant
