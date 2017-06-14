@@ -56,7 +56,7 @@ if [ "$runVagrant" == "y" ]
   then
     printf "${BLUE} ------------ Running ${GREEN} vagrant up ${BLUE} command to start Vagrant ------------ ${WHITE}\n"
     vagrant up
-    echo "------------ CHECK IF VAGRANT IS RUNNING ------------"
+    printf "${BLUE} ------------ Running ${GREEN} vagrant status ${BLUE} command to check if Vagrant is running ------------ ${WHITE}\n"
     vagrant status
 elif [ "$runVagrant" == "n" ]
   then
