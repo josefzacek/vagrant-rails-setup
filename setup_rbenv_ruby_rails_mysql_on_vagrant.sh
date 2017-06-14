@@ -64,7 +64,8 @@ else
 fi
 
 # ask user if ssh to vagrant
-read -p "Would you like to ssh to Vagrant (y/n)?" sshVagrant
+printf "${YELLOW} Would you like to ssh to Vagrant (y/n)? ${WHITE}\n"
+read sshVagrant
 
 if [ "$sshVagrant" == "y" ]
   then
