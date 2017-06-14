@@ -11,7 +11,7 @@ printf "${BLUE} ------------ Running ${GREEN} vagrant -v ${BLUE} command to chec
 vagrant -v
 sleep 2
 
-echo "------------ LIST ALL BOXES AVAILABLE ------------"
+printf "${BLUE} ------------ Running ${GREEN} vagrant box list ${BLUE} command to list all Vagrant boxes available ------------ ${WHITE}\n"
 vagrant box list
 sleep 2
 
