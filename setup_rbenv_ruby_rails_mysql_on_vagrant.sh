@@ -29,8 +29,7 @@ fi
 printf "${YELLOW} Please type the name of Vagrant box you would like to create. eg: ${GREEN} ubuntu/trusty64 ${WHITE}\n"
 read vagrantBoxName
 
-echo "Creating $vagrantBoxName Vagrant box"
-echo "------------ INIT VAGRANT ------------"
+printf "${BLUE} ------------ Running ${GREEN} vagrant init $vagrantBoxName ${BLUE} command to create ${GREEN} $vagrantBoxName ${BLUE} Vagrant box ------------ ${WHITE}\n"
 vagrant init $vagrantBoxName
 sleep 5
 echo $'
