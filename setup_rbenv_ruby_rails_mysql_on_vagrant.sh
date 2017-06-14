@@ -35,7 +35,7 @@ sleep 5
 printf "
   ${RED} ------------ Please add following to Vagrantfile ------------
 
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  ${BLUE} config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   ${RED} ------------ Please update Vagrantfile with following (optional) ------------
 
