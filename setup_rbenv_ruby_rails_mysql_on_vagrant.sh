@@ -39,12 +39,12 @@ printf "
 
   ${RED} ------------ Please update Vagrantfile with following (optional) ------------
 
-  config.vm.provider "virtualbox" do |vb|
-  # Display the VirtualBox GUI when booting the machine
-  # vb.gui = true
+  ${BLUE}config.vm.provider 'virtualbox' do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
   
-  # Customize the amount of memory on the VM:
-    vb.memory = "2048"
+    # Customize the amount of memory on the VM:
+    vb.memory = '2048'
   end
 \n"
 
