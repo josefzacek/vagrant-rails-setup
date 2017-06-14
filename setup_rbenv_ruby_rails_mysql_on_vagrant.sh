@@ -54,6 +54,7 @@ read runVagrant
 
 if [ "$runVagrant" == "y" ]
   then
+    printf "${BLUE} ------------ Running ${GREEN} vagrant up ${BLUE} command to start Vagrant ------------ ${WHITE}\n"
     vagrant up
     echo "------------ CHECK IF VAGRANT IS RUNNING ------------"
     vagrant status
