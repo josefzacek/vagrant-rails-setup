@@ -32,12 +32,12 @@ read vagrantBoxName
 printf "${BLUE} ------------ Running ${GREEN} vagrant init $vagrantBoxName ${BLUE} command to create ${GREEN} $vagrantBoxName ${BLUE} Vagrant box ------------ ${WHITE}\n"
 vagrant init $vagrantBoxName
 sleep 5
-  <<<<< -- Please add following to Vagrantfile -- >>>>>
 printf "
+  ${RED} ------------ Please add following to Vagrantfile ------------
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  <<<<< -- Please update Vagrantfile with following (optional) -- >>>>>
+  ${RED} ------------ Please update Vagrantfile with following (optional) ------------
 
   config.vm.provider "virtualbox" do |vb|
   # Display the VirtualBox GUI when booting the machine
