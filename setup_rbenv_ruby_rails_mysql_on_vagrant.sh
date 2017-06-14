@@ -49,7 +49,8 @@ echo $'
 '
   
 # ask user if proceed with running vagrant
-read -p "Would you like to continue to run Vagrant (y/n)?" runVagrant
+printf "${YELLOW} Would you like to continue to run Vagrant (y/n)? ${WHITE}\n"
+read runVagrant
 
 if [ "$runVagrant" == "y" ]
   then
