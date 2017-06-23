@@ -1,9 +1,17 @@
 #!/bin/bash
-echo "------------ CHECK VAGRANT VERSION ------------"
+
+# set colors
+GREEN='\e[1;32m'
+BLUE='\e[1;36m'
+YELLOW='\e[1;33m'
+RED='\e[1;31m'
+WHITE='\e[1;37m'
+
+printf "${BLUE} ------------ Running ${GREEN} vagrant -v ${BLUE} command to check Vagrant version ------------ ${WHITE}\n"
 vagrant -v
 sleep 2
 
-echo "------------ LIST ALL BOXES AVAILABLE ------------"
+printf "${BLUE} ------------ Running ${GREEN} vagrant box list ${BLUE} command to list all Vagrant boxes available ------------ ${WHITE}\n"
 vagrant box list
 sleep 2
 
@@ -18,35 +26,37 @@ if [ -f "$vagrantFilePath" ]
 fi
 
 # ask user what Vagrant box should be installed
-read -p "Please type the name of Vagrant box you would like to create. eg: ubuntu/trusty64 " vagrantBoxName
+printf "${YELLOW} Please type the name of Vagrant box you would like to create. eg: ${GREEN} ubuntu/trusty64 ${WHITE}\n"
+read vagrantBoxName
 
-echo "Creating $vagrantBoxName Vagrant box"
-echo "------------ INIT VAGRANT ------------"
+printf "${BLUE} ------------ Running ${GREEN} vagrant init $vagrantBoxName ${BLUE} command to create ${GREEN} $vagrantBoxName ${BLUE} Vagrant box ------------ ${WHITE}\n"
 vagrant init $vagrantBoxName
 sleep 5
-echo $'
-  <<<<< -- Please add following to Vagrantfile -- >>>>>
+printf "
+  ${RED} ------------ Please add following to Vagrantfile ------------
 
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  ${BLUE} config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  <<<<< -- Please update Vagrantfile with following (optional) -- >>>>>
+  ${RED} ------------ Please update Vagrantfile with following (optional) ------------
 
-  config.vm.provider "virtualbox" do |vb|
-  # Display the VirtualBox GUI when booting the machine
-  # vb.gui = true
+  ${BLUE}config.vm.provider 'virtualbox' do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
   
-  # Customize the amount of memory on the VM:
-    vb.memory = "2048"
+    # Customize the amount of memory on the VM:
+    vb.memory = '2048'
   end
-'
-  
+\n"
+
 # ask user if proceed with running vagrant
-read -p "Would you like to continue to run Vagrant (y/n)?" runVagrant
+printf "${YELLOW} Would you like to continue to run Vagrant (y/n)? ${WHITE}\n"
+read runVagrant
 
 if [ "$runVagrant" == "y" ]
   then
+    printf "${BLUE} ------------ Running ${GREEN} vagrant up ${BLUE} command to start Vagrant ------------ ${WHITE}\n"
     vagrant up
-    echo "------------ CHECK IF VAGRANT IS RUNNING ------------"
+    printf "${BLUE} ------------ Running ${GREEN} vagrant status ${BLUE} command to check if Vagrant is running ------------ ${WHITE}\n"
     vagrant status
 elif [ "$runVagrant" == "n" ]
   then
@@ -56,11 +66,12 @@ else
 fi
 
 # ask user if ssh to vagrant
-read -p "Would you like to ssh to Vagrant (y/n)?" sshVagrant
+printf "${YELLOW} Would you like to ssh to Vagrant (y/n)? ${WHITE}\n"
+read sshVagrant
 
 if [ "$sshVagrant" == "y" ]
   then
-    echo "------------ RUNNING vagrant ssh command ------------"
+    printf "${BLUE} ------------  Running ${GREEN} vagrant ssh ${BLUE} command to shh to Vagrant ------------ ${WHITE}\n"
     vagrant ssh
 elif [ "$runVagrant" == "n" ]
   then
