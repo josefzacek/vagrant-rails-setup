@@ -37,16 +37,6 @@ printf "
 
   ${BLUE}config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  # install updates
-  puts 'Would you like to get latest updates (y/n)?'
-  install_updates = STDIN.gets.chomp
-  config.vm.provision :shell, :path => 'provision/install_updates.sh', :args => [install_updates]
-
-  # install updates
-  puts 'Would you like to get latest upgrades (y/n)?'
-  install_upgrades = STDIN.gets.chomp
-  config.vm.provision :shell, :path => 'provision/install_upgrades.sh', :args => [install_upgrades]
-
   ${RED} ------------ Please update Vagrantfile with following (optional) ------------
 
   ${BLUE}config.vm.provider 'virtualbox' do |vb|
