@@ -15,9 +15,8 @@ Clone `setup_vagrant.sh` file used to setup Vagrant
 
     brew install wget
 
-# Usage
+Run `bash setup_vagrant.sh` command to setup Vagrant
 
-    bash setup_rbenv_ruby_rails_mysql_on_vagrant.sh
+    bash setup_vagrant.sh
 
 --
-
