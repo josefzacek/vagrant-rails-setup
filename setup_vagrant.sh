@@ -48,6 +48,21 @@ printf "
   end
 \n"
 
+# ask user if validate Vagrant file
+printf "${YELLOW} Would you like to validate syntax of Vagrantfile (y/n)? ${WHITE}\n"
+read validateVagrantfile
+
+if [ "$validateVagrantfile" == "y" ]
+  then
+    printf "${BLUE} ------------ Running ${GREEN} vagrant validate ${BLUE} command to check vagrantfile syntax ------------ ${WHITE}\n"
+    vagrant validate
+elif [ "$validateVagrantfile" == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
+
 # ask user if proceed with running vagrant
 printf "${YELLOW} Would you like to continue to run Vagrant (y/n)? ${WHITE}\n"
 read runVagrant
