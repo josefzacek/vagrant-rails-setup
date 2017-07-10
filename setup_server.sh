@@ -27,3 +27,24 @@ elif [ $serverUpdate == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# would you like to install upgrades
+printf "${YELLOW} Would you like to run upgrade command (y/n)? ${WHITE}\n"
+read serverUpgrade
+
+if [ $serverUpgrade == "y" ]
+  then
+    printf "${BLUE} ------------  Running ${GREEN} cd / ${BLUE} command to navigate to root folder  ------------ ${WHITE}\n"
+    cd /
+    sleep 2
+    printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Running ${GREEN} sudo apt-get upgrade ${BLUE} command to get the latest upgrade  ------------ ${WHITE}\n"
+    sudo apt-get upgrade
+elif [ $serverUpgrade == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
