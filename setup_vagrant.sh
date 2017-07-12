@@ -81,7 +81,7 @@ else
 fi
 
 
-# get Vagrant state (running, saved, not_created, ... )
+# get Vagrant state (running, saved, not_created, poweroff ... )
 vagrantStatus=`vagrant status --machine-readable | grep ",state," | egrep -o '([a-z]*)$'`
 
 # ask user to ssh only if vagrant is running
