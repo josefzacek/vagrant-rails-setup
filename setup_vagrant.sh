@@ -89,6 +89,8 @@ if [ "$sshVagrant" == "y" ]
     printf "${BLUE} ------------  Running ${GREEN} vagrant ssh ${BLUE} command to shh to Vagrant ------------ ${WHITE}\n"
     vagrant ssh
 elif [ "$runVagrant" == "n" ]
+# get Vagrant state (running, saved, not_created, ... )
+vagrantStatus=`vagrant status --machine-readable | grep ",state," | egrep -o '([a-z]*)$'`
   then
     echo "You have answered No, exiting!"
 else
