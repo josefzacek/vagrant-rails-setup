@@ -80,17 +80,25 @@ else
     echo "invalid input exiting"
 fi
 
-# ask user if ssh to vagrant
-printf "${YELLOW} Would you like to ssh to Vagrant (y/n)? ${WHITE}\n"
-read sshVagrant
 
-if [ "$sshVagrant" == "y" ]
+# get Vagrant state (running, saved, not_created, poweroff ... )
+vagrantStatus=`vagrant status --machine-readable | grep ",state," | egrep -o '([a-z]*)$'`
+
+# ask user to ssh only if vagrant is running
+if [ "$vagrantStatus" == "running" ]
   then
-    printf "${BLUE} ------------  Running ${GREEN} vagrant ssh ${BLUE} command to shh to Vagrant ------------ ${WHITE}\n"
-    vagrant ssh
-elif [ "$runVagrant" == "n" ]
-  then
-    echo "You have answered No, exiting!"
-else
-    echo "invalid input exiting"
+    # ask user if ssh to vagrant
+    printf "${YELLOW} Would you like to ssh to Vagrant (y/n)? ${WHITE}\n"
+    read sshVagrant
+
+    if [ "$sshVagrant" == "y" ]
+      then
+        printf "${BLUE} ------------  Running ${GREEN} vagrant ssh ${BLUE} command to shh to Vagrant ------------ ${WHITE}\n"
+        vagrant ssh
+    elif [ "$runVagrant" == "n" ]
+      then
+        echo "You have answered No, exiting!"
+    else
+        echo "invalid input exiting"
+    fi
 fi
