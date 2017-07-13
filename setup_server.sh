@@ -71,7 +71,7 @@ else
 fi
 
 # would you like to enable automatic unattended upgrades
-printf "${YELLOW} Would you like to run ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${YELLOW} to install unattended upgrades (y/n)? ${WHITE}\n"
+printf "${YELLOW} Would you like to run ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${YELLOW} to enable automatic unattended upgrades (y/n)? ${WHITE}\n"
 read installAutomaticUnattendedUpgrades
 
 if [ $installAutomaticUnattendedUpgrades == "y" ]
