@@ -29,7 +29,7 @@ else
 fi
 
 # would you like to install upgrades
-printf "${YELLOW} Would you like to run upgrade command (y/n)? ${WHITE}\n"
+printf "${YELLOW} Would you like to run ${GREEN} sudo apt-get upgrade ${YELLOW} command (y/n)? ${WHITE}\n"
 read serverUpgrade
 
 if [ $serverUpgrade == "y" ]
