@@ -69,3 +69,24 @@ elif [ $installUnattendedUpgrades == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# would you like to enable automatic unattended upgrades
+printf "${YELLOW} Would you like to run ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${YELLOW} to enable automatic unattended upgrades (y/n)? ${WHITE}\n"
+read installAutomaticUnattendedUpgrades
+
+if [ $installAutomaticUnattendedUpgrades == "y" ]
+  then
+    printf "${BLUE} ------------  Running ${GREEN} cd / ${BLUE} command to navigate to root folder  ------------ ${WHITE}\n"
+    cd /
+    sleep 2
+    printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Running ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${BLUE} command to enable automatic unattended upgrades  ------------ ${WHITE}\n"
+    sudo dpkg-reconfigure --priority=low unattended-upgrades
+elif [ $installAutomaticUnattendedUpgrades == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
