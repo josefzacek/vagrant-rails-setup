@@ -82,7 +82,7 @@ if [ $installAutomaticUnattendedUpgrades == "y" ]
     printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
     pwd
     sleep 5
-    printf "${BLUE} ------------  Running ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${BLUE} command to install unattended upgrades  ------------ ${WHITE}\n"
+    printf "${BLUE} ------------  Running ${GREEN} sudo dpkg-reconfigure --priority=low unattended-upgrades ${BLUE} command to enable automatic unattended upgrades  ------------ ${WHITE}\n"
     sudo dpkg-reconfigure --priority=low unattended-upgrades
 elif [ $installAutomaticUnattendedUpgrades == "n" ]
   then
