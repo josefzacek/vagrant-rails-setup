@@ -8,7 +8,7 @@ RED='\e[1;31m'
 WHITE='\e[1;37m'
 
 # would you like to install updates
-printf "${YELLOW} Would you like to run update command (y/n)? ${WHITE}\n"
+printf "${YELLOW} Would you like to run ${GREEN} sudo apt-get update ${YELLOW} command (y/n)? ${WHITE}\n"
 read serverUpdate
 
 if [ $serverUpdate == "y" ]
