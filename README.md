@@ -23,4 +23,6 @@ Run `bash setup_vagrant.sh` command to setup Vagrant
 
     bash setup_vagrant.sh
 
---
+Once vagrant is setup and running, cd into /vagrant folder
+
+    cd /vagrant
