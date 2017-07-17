@@ -90,3 +90,24 @@ elif [ $installAutomaticUnattendedUpgrades == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# would you like to install htop
+printf "${YELLOW} Would you like to run ${GREEN} sudo apt-get install htop ${YELLOW} to install htop (y/n)? ${WHITE}\n"
+read installHtop
+
+if [ $installHtop == "y" ]
+  then
+    printf "${BLUE} ------------  Running ${GREEN} cd / ${BLUE} command to navigate to root folder  ------------ ${WHITE}\n"
+    cd /
+    sleep 2
+    printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Running ${GREEN} sudo apt-get install htop ${BLUE} command to install htop  ------------ ${WHITE}\n"
+    sudo apt-get install htop
+elif [ $installHtop == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
