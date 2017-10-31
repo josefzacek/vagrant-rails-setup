@@ -132,3 +132,24 @@ elif [ $installDependencies == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# install MySQL database
+printf "${YELLOW} Would you like to run ${GREEN} sudo apt-get install mysql-server mysql-client libmysqlclient-dev ${YELLOW} to install MySQL database (y/n)? ${WHITE}\n"
+read installMysqlDatabase
+
+if [ $installMysqlDatabase == "y" ]
+  then
+    printf "${BLUE} ------------  Running ${GREEN} cd / ${BLUE} command to navigate to root folder  ------------ ${WHITE}\n"
+    cd /
+    sleep 2
+    printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Running ${GREEN} sudo apt-get install mysql-server mysql-client libmysqlclient-dev ${BLUE} command to install MySQL database  ------------ ${WHITE}\n"
+    sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+elif [ $installMysqlDatabase == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
