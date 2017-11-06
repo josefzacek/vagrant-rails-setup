@@ -153,3 +153,34 @@ elif [ $installMysqlDatabase == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# setup MySQL user, database and privileges
+printf "${YELLOW} Would you like to run ${GREEN} mysql -u root -p ${YELLOW} command to login to MySQL (y/n)? ${WHITE}\n"
+read loginToMysql
+
+if [ $loginToMysql == "y" ]
+  then
+    printf "${BLUE} ------------  Running ${GREEN} cd / ${BLUE} command to navigate to root folder  ------------ ${WHITE}\n"
+    cd /
+    sleep 2
+    printf "${BLUE} ------------  Running ${GREEN} pwd ${BLUE} command to confirm path  ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Running ${GREEN} mysql -u root -p ${BLUE} command to login to MySQL  ------------ ${WHITE}\n
+      ${YELLOW} ----- A couple of handy MySQL commands you might need ----- ${WHITE}\n
+      ${BLUE} Create MySQL database: ${GREEN} CREATE DATABASE ${RED}database_name${GREEN}; ${WHITE}\n
+      ${BLUE} Create user: ${GREEN} CREATE USER '${RED}user_name${GREEN}'@'localhost' IDENTIFIED BY '${RED}password${GREEN}'; ${WHITE}\n
+      ${BLUE} Grant user privileges: ${GREEN}GRANT ALL PRIVILEGES ON ${RED}database_name${GREEN} . * TO '${RED}user_name${GREEN}'@'localhost'; ${WHITE}\n
+      ${BLUE} Flush privileges to pickup changes: ${GREEN}flush privileges; ${WHITE}\n
+      ${BLUE} List all MySQL users: ${GREEN}SELECT User FROM mysql.user; ${WHITE}\n
+      ${BLUE} Show privileges for certain user: ${GREEN} SHOW GRANTS FOR '${RED}user_name'@'localhost'${GREEN}; ${WHITE}\n
+      ${BLUE} List all databases: ${GREEN} SHOW DATABASES; ${WHITE}\n
+      ${BLUE} Exit MySQL shell: ${GREEN} quit;  ${WHITE}\n"
+
+    mysql -u root -p
+elif [ $loginToMysql == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
