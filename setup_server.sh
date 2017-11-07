@@ -184,3 +184,38 @@ elif [ $loginToMysql == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# install rbenv
+printf "${YELLOW} Would you like to run to install ${GREEN}rbenv${YELLOW} (y/n)? ${WHITE}\n"
+read installRbenv
+
+if [ $installRbenv == "y" ]
+  then
+    printf "${BLUE} ------------ Running ${GREEN}cd${BLUE} command to navigate to current user home folder ------------ ${WHITE}\n"
+    cd
+    sleep 2
+    printf "${BLUE} ------------ Running ${GREEN}pwd${BLUE} command to confirm current user home path ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------ Installing ${GREEN}rbenv${BLUE}, ${GREEN}ruby-build${BLUE}, ${GREEN}rbenv-gem-rehash${BLUE} ------------ ${WHITE}\n"
+    git clone git://github.com/sstephenson/rbenv.git .rbenv && printf "${GREEN}rbenv cloned${WHITE}\n" || printf "${RED}rbenv clone failed${WHITE}\n"
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+    git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && printf "${GREEN}ruby-build cloned${WHITE}\n" || printf "${RED}ruby-build clone failed${WHITE}\n"
+    echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+
+
+    git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash && printf "${GREEN}rbenv-gem-rehash cloned${WHITE}\n" || printf "${RED}rbenv-gem-rehash clone failed${WHITE}"
+    printf "${BLUE} ------------ Running ${GREEN}rbenv${BLUE} to check if rbenv installed ------------ ${WHITE}\n"
+    sleep 2
+    type rbenv
+    printf "${BLUE} ------------ Running${GREEN}rbenv install --list${BLUE} to list all ruby versions available ------------ ${WHITE}\n"
+    sleep 2
+    rbenv install --list
+elif [ $installRbenv == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
