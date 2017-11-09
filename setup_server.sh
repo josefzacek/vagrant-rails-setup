@@ -205,8 +205,7 @@ if [ $installRbenv == "y" ]
     git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && printf "${GREEN}ruby-build cloned${WHITE}\n" || printf "${RED}ruby-build clone failed${WHITE}\n"
     echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 
-
-    git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash && printf "${GREEN}rbenv-gem-rehash cloned${WHITE}\n" || printf "${RED}rbenv-gem-rehash clone failed${WHITE}"
+    git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash && printf "${GREEN}rbenv-gem-rehash cloned${WHITE}\n" || printf "${RED}rbenv-gem-rehash clone failed${WHITE}\n"
     printf "${BLUE} ------------ Running ${GREEN}rbenv${BLUE} to check if rbenv installed ------------ ${WHITE}\n"
     sleep 2
     type rbenv
