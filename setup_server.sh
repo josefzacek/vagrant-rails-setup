@@ -221,3 +221,32 @@ elif [ $installRbenv == "n" ]
 else
     echo "invalid input exiting"
 fi
+
+# install ruby using rbenv
+printf "${YELLOW} Would you like to use rbenv to install ruby (y/n)? ${WHITE}\n"
+read installRuby
+
+if [ $installRuby == "y" ]
+  then
+    printf "${BLUE} ------------ Running ${GREEN}cd${BLUE} command to navigate to current user home folder ------------ ${WHITE}\n"
+    cd
+    sleep 2
+    printf "${BLUE} ------------ Running ${GREEN}pwd${BLUE} command to confirm current user home path ------------ ${WHITE}\n"
+    pwd
+    sleep 5
+    printf "${BLUE} ------------  Type ruby version you would like to pass to ${GREEN}rbenv install -v${BLUE} command to install ruby version specified (eg: 2.4.0) ------------ ${WHITE}\n"
+    read rubyVersion
+    rbenv install -v $rubyVersion
+    # set ruby version
+    printf "${BLUE} ------------  Running ${GREEN}rbenv global $rubyVersion ${BLUE} command ------------ ${WHITE}\n"
+    rbenv global $rubyVersion
+    printf "${BLUE} ------------  Running ${GREEN}rbenv rehash ${BLUE} command ------------ ${WHITE}\n"
+    rbenv rehash
+    printf "${BLUE} ------------  Running ${GREEN}ruby -v ${BLUE} command ------------ ${WHITE}\n"
+    ruby -v
+elif [ $installRuby == "n" ]
+  then
+    echo "You have answered No, exiting!"
+else
+    echo "invalid input exiting"
+fi
